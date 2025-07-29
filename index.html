@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麥克風頻譜分析器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 50px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .tool-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .tool-card h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+        
+        .tool-card p {
+            font-size: 1em;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .recommended {
+            position: relative;
+            border: 2px solid #4CAF50;
+        }
+        
+        .recommended::before {
+            content: '推薦';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #4CAF50;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .features {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .features ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .features li {
+            padding: 5px 0;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .features li:before {
+            content: '✓ ';
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        footer {
+            margin-top: 50px;
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 麥克風頻譜分析器</h1>
+        <p class="subtitle">選擇適合你需求的分析工具</p>
+        
+        <div class="tools-grid">
+            <a href="spectrum-analyzer-improved.html" class="tool-card recommended">
+                <h2>頻譜瀑布圖分析器</h2>
+                <p>最完整的頻譜分析工具，提供即時頻譜、平均頻譜和瀑布圖視覺化</p>
+                <div class="features">
+                    <ul>
+                        <li>互動式頻譜選擇</li>
+                        <li>Hover 顯示精確數值</li>
+                        <li>自動載入 teraterm.csv</li>
+                        <li>播放動畫功能</li>
+                    </ul>
+                </div>
+            </a>
+            
+            <a href="spectrum-analyzer.html" class="tool-card">
+                <h2>基礎頻譜分析器</h2>
+                <p>簡潔的頻譜分析工具，專注於單一頻譜的詳細檢視</p>
+                <div class="features">
+                    <ul>
+                        <li>頻譜幀導航</li>
+                        <li>峰值頻率檢測</li>
+                        <li>動畫播放</li>
+                    </ul>
+                </div>
+            </a>
+            
+            <a href="spectrum-waterfall.html" class="tool-card">
+                <h2>瀑布圖視覺化</h2>
+                <p>專門的瀑布圖顯示工具，適合分析頻譜隨時間的變化</p>
+                <div class="features">
+                    <ul>
+                        <li>Matrix 瀑布圖</li>
+                        <li>大數據集支援</li>
+                        <li>顏色強度映射</li>
+                    </ul>
+                </div>
+            </a>
+            
+            <a href="realtime-audio-monitor.html" class="tool-card">
+                <h2>即時音頻監測器</h2>
+                <p>用於監測連續音頻數據流的即時顯示工具</p>
+                <div class="features">
+                    <ul>
+                        <li>即時波形顯示</li>
+                        <li>可調視窗大小</li>
+                        <li>暫停/繼續功能</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+        
+        <footer>
+            <p>提示：所有工具都支援拖放 CSV 檔案或點擊載入按鈕選擇檔案</p>
+        </footer>
+    </div>
+</body>
+</html>
